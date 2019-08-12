@@ -109,8 +109,7 @@ public class CommentManager extends HttpServlet {
 			}
 			
 			@SuppressWarnings("unchecked")
-			List<User> users = sess.createQuery("FROM User u WHERE u.id = :creator_id")
-													.setParameter("creator_id", creator_id)
+			List<User> users = sess.createQuery("FROM User u WHERE u.id = " + creator_id_string)
 													.list();
 			
 			if(users.isEmpty()) {
